@@ -1,4 +1,4 @@
-<%= form_with(model: expenditure) do |form| %>
+<%= form_with model: expenditure, url: "/groups/#{params['group_id']}/expenditures/create" do |form| %>
   <% if expenditure.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</h2>
@@ -10,11 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :author_id, style: "display: block" %>
-    <%= form.number_field :author_id %>
-  </div>
 
   <div>
     <%= form.label :name, style: "display: block" %>
