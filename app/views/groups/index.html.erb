@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Groups</h1>
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    <% if group.icon.attached? %>
+      <%= image_tag(group.icon) %>
+    <% else %>
+      <div style="background-color:<%= group.default_colors[0] %>; color: <%= group.default_colors[1] %>">
+        <%= group.name[0] %>
+      </div>
+    <% end %>
+    <p>
+      <%= link_to "Show this group", group %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New group", new_group_path %>
