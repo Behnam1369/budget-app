@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if notice.to_s != '' %>
+      <div class="notice"><%= notice %></div>
+    <% end %>
+    <% if alert.to_s != '' %>
+      <div class="alert"><%= alert %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
