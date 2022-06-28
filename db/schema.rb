@@ -43,12 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_28_072305) do
   end
 
   create_table "expenditures", force: :cascade do |t|
-    t.bigint "author_id"
+    t.integer "author_id"
+    t.integer "group_id"
     t.string "name"
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_expenditures_on_author_id"
+    t.index ["group_id"], name: "index_expenditures_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -78,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_28_072305) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "expenditures", "groups"
   add_foreign_key "expenditures", "users", column: "author_id"
   add_foreign_key "groups", "users"
 end
