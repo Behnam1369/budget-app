@@ -1,45 +1,49 @@
-require "test_helper"
+require 'test_helper'
 
 class ExpendituresControllerTest < ActionDispatch::IntegrationTest
   setup do
     @expenditure = expenditures(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get expenditures_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_expenditure_url
     assert_response :success
   end
 
-  test "should create expenditure" do
-    assert_difference("Expenditure.count") do
-      post expenditures_url, params: { expenditure: { amount: @expenditure.amount, author_id: @expenditure.author_id, name: @expenditure.name } }
+  test 'should create expenditure' do
+    assert_difference('Expenditure.count') do
+      post expenditures_url,
+           params: { expenditure: { amount: @expenditure.amount, author_id: @expenditure.author_id,
+                                    name: @expenditure.name } }
     end
 
     assert_redirected_to expenditure_url(Expenditure.last)
   end
 
-  test "should show expenditure" do
+  test 'should show expenditure' do
     get expenditure_url(@expenditure)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_expenditure_url(@expenditure)
     assert_response :success
   end
 
-  test "should update expenditure" do
-    patch expenditure_url(@expenditure), params: { expenditure: { amount: @expenditure.amount, author_id: @expenditure.author_id, name: @expenditure.name } }
+  test 'should update expenditure' do
+    patch expenditure_url(@expenditure),
+          params: { expenditure: { amount: @expenditure.amount, author_id: @expenditure.author_id,
+                                   name: @expenditure.name } }
     assert_redirected_to expenditure_url(@expenditure)
   end
 
-  test "should destroy expenditure" do
-    assert_difference("Expenditure.count", -1) do
+  test 'should destroy expenditure' do
+    assert_difference('Expenditure.count', -1) do
       delete expenditure_url(@expenditure)
     end
 
