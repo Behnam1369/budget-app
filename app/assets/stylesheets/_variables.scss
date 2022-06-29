@@ -1,0 +1,17 @@
+$c1: #f1f3f2;
+$main: #3778c2;
+$second: #5fb523;
+$title: #434b54;
+$p1: #555e67;
+$p2: #878a8f;
+$p3: #989da3;
+
+@font-face {
+  font-family: 'Bold';
+  src: asset-url('fonts/Proxima_Nova_Bold.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Light';
+  src: asset-url('fonts/Proxima_Nova_Light.otf') format('truetype');
+}
