@@ -3,7 +3,7 @@ class ExpendituresController < ApplicationController
 
   # GET /expenditures or /expenditures.json
   def index
-    @expenditures = Expenditure.all
+    @expenditures = Expenditure.where(group_id: params['group_id']).order(created_at: :desc)
   end
 
   # GET /expenditures/1 or /expenditures/1.json
@@ -25,13 +25,12 @@ class ExpendituresController < ApplicationController
     respond_to do |format|
       if @expenditure.save
         format.html do
-          redirect_to "/groups/#{params['group_id']}/expenditures/#{@expenditure.id}",
-                      notice: 'Expenditure was successfully created.'
+          redirect_to "/groups/#{params['group_id']}/expenditures"
         end
-        format.json { render :show, status: :created, location: @expenditure }
+        # format.json { render :show, status: :created, location: @expenditure }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @expenditure.errors, status: :unprocessable_entity }
+        # format.json { render json: @expenditure.errors, status: :unprocessable_entity }
       end
     end
   end

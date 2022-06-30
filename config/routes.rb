@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   post 'groups/:group_id/expenditures/create', to: 'expenditures#create'
   get 'groups/:group_id/expenditures/:id', to: 'expenditures#show'
   delete '/groups/:group_id/expenditures/:id/delete', to: 'expenditures#delete'
-  # Defines the root path route ("/")
-  root 'groups#index'
+
+  get 'users', to: 'users#index'
+  authenticated do
+    root to: 'groups#index', as: 'user'
+  end
+
+  unauthenticated do
+    root to: 'users#index', as: 'unauthenticated_user_root'
+  end
+
 end

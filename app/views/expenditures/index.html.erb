@@ -1,14 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Expenditures</h1>
-
-<div id="expenditures">
+<div class="header">
+  <h1><%= Group.find(params['group_id']).name.upcase %>
+    <a href="/groups" class="btn_back"><i class="fa fa-chevron-left"></i></a>
+  </h1>
+</div>
+<div id="expenditures" class="expenditures">
+  <div class="total">
+    <h3> Total Spent Amount: $
+      <%= 
+        @sum = 0
+        Expenditure.where(group_id: params['group_id']).each do |exp|
+          @sum += exp.amount
+        end
+        @sum
+      %>
+    </h3>
+  </div>
   <% @expenditures.each do |expenditure| %>
     <%= render expenditure %>
-    <p>
-      <%= link_to "Show this expenditure", expenditure %>
-    </p>
   <% end %>
+  <%= link_to "New expenditure", "/groups/#{params['group_id']}/expenditures/new", class:'btn' %>
 </div>
 
-<%= link_to "New expenditure", "/groups/#{params['group_id']}/expenditures/new" %>

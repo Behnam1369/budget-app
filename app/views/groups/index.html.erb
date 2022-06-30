@@ -1,21 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Groups</h1>
-
+<div class="header">
+  <h1>GROUPS</h1>
+</div>
 <div id="groups">
+  <div class="total">
+    <h3> Total Spent Amount: $
+      <%= 
+        @sum = 0
+        Expenditure.where(author_id: current_user.id).each do |exp|
+          @sum += exp.amount
+        end
+        @sum
+      %>
+    </h3>
+  </div>
+  <% if @groups.empty? %>
+    <p>There isn't any group to show yet.</p>
+  <% end %>
   <% @groups.each do |group| %>
     <%= render group %>
-    <% if group.icon.attached? %>
-      <%= image_tag(group.icon) %>
-    <% else %>
-      <div style="background-color:<%= group.default_colors[0] %>; color: <%= group.default_colors[1] %>">
-        <%= group.name[0] %>
-      </div>
-    <% end %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
   <% end %>
+  <%= link_to "New group", new_group_path, class:'btn' %>
 </div>
 
-<%= link_to "New group", new_group_path %>

@@ -1,12 +1,25 @@
-<div id="<%= dom_id group %>">
+<% 
+  @amount = 0 
+  Expenditure.where(group_id: group.id).each do |exp|
+    @amount += exp.amount
+  end
+  @amount
+%>
+
+<%= link_to "/groups/#{group.id}/expenditures", class:'group progress', style:"background-image: linear-gradient(to right, springgreen #{@amount*100/@sum}%, #fff #{@amount*100/@sum}%)" do %>
+  <% if group.icon.attached? %>
+    <%= image_tag(group.icon, class: 'icon') %>
+  <% else %>
+    <div style="background-color:<%= group.default_colors[0] %>; color: <%= group.default_colors[1] %>" class="icon">
+      <%= group.name[0] %>
+    </div>
+  <% end %>
   <p>
-    <strong>Name:</strong>
-    <%= group.name %>
+    <span><%= group.name %></span>
+    <span><%= group.created_at.strftime('%Y-%m-%d') %></span>
   </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
-
-</div>
+  <div class="amount">
+    $ <%= @amount %>
+  </div>
+<% end %>
