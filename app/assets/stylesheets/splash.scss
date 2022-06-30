@@ -8,7 +8,6 @@
   align-items: center;
   height: 100%;
   background-image: linear-gradient(to bottom, #2b5f9c, $c1);
-  padding: 10px;
 
   h1 {
     font-family: 'Merinda', sans-serif;
@@ -38,6 +37,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 10px;
+      width: calc(100% - 20px);
     }
 
     .btn:nth-child(2) {
