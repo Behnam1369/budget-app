@@ -11,7 +11,7 @@
     <%= image_tag(group.icon, class: 'icon') %>
   <% else %>
     <div style="background-color:<%= group.default_colors[0] %>; color: <%= group.default_colors[1] %>" class="icon">
-      <%= group.name[0] %>
+      <%= group.name[0].upcase %>
     </div>
   <% end %>
   <p>

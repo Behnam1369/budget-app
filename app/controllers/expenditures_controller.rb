@@ -6,16 +6,10 @@ class ExpendituresController < ApplicationController
     @expenditures = Expenditure.where(group_id: params['group_id']).order(created_at: :desc)
   end
 
-  # GET /expenditures/1 or /expenditures/1.json
-  def show; end
-
   # GET /expenditures/new
   def new
     @expenditure = Expenditure.new
   end
-
-  # GET /expenditures/1/edit
-  def edit; end
 
   # POST /expenditures or /expenditures.json
   def create
@@ -32,37 +26,6 @@ class ExpendituresController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         # format.json { render json: @expenditure.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /expenditures/1 or /expenditures/1.json
-  def update
-    respond_to do |format|
-      @expenditure['group_id'] = params['group_id']
-      @expenditure.author = current_user
-      if @expenditure.update(expenditure_params)
-        format.html do
-          redirect_to "/groups/#{params['group_id']}/expenditures/#{@expenditure.id}",
-                      notice: 'Expenditure was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @expenditure }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @expenditure.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /expenditures/1 or /expenditures/1.json
-  def delete
-    @expenditure = Expenditure.find(params['id'])
-    @expenditure.destroy
-
-    respond_to do |format|
-      format.html do
-        redirect_to "/groups/#{params['group_id']}/expenditures", notice: 'Expenditure was successfully destroyed.'
-      end
-      format.json { head :no_content }
     end
   end
 
