@@ -1,5 +1,7 @@
-<h2>LOG IN</h2>
-
+<div class="app_layout_header"></div>
+<div class="header">
+  <h1>LOG IN</h1>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'users'}) do |f| %>
   <div class="field">
     <%= f.email_field :email, autofocus: true, placeholder:"email" %>
