@@ -37,7 +37,7 @@ RSpec.describe 'Expenditures tests', type: :feature do
     expect(page).to have_current_path("/groups/#{Group.last.id}/expenditures/new")
   end
 
-  it 'By clicking on the back button on new expenditure form it should be redirected to the list of expenditures for the grouo' do
+  it 'Back button on new expenditure form it should redirect to the list of expenditures for the grouo' do
     click_link 'NEW EXPENDITURE'
     find('.btn_back').click
     expect(page).to have_current_path "/groups/#{Group.last.id}/expenditures"
