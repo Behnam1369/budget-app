@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Group name" %>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.file_field :icon %>
+  <div class="field">
+    <input type="button" class="btn_file" value="Click here to choose group icon" />
+    <%= form.file_field :icon, class:"file" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <img id="preview" src="#" alt="your image" />
   </div>
+  <div>
+    <%= form.submit class:"btn" %>
+  </div>
+  <%= link_to "Back to groups", groups_path %>
 <% end %>
