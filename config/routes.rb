@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'groups/:group_id/expenditures/new', to: 'expenditures#new'
   post 'groups/:group_id/expenditures/create', to: 'expenditures#create'
 
-  get 'users', to: 'users#index'
   authenticated do
     root to: 'groups#index', as: 'user'
   end
@@ -15,5 +14,4 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: 'users#index', as: 'unauthenticated_user_root'
   end
-
 end
