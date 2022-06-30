@@ -1,14 +1,24 @@
 @import "variables";
 
+@media screen and (min-width: 420px) {
+  html {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/002/375/040/original/modern-white-background-free-vector.jpg');
+
+    body {
+      border: solid 1px silver;
+      box-shadow: rgba(0, 0, 0, 0.15) 0 5px 15px 0;
+    }
+  }
+}
+
 html {
-  background-color: $c1;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 
   body {
-    // border: solid 1px silver;
+    background-color: $c1;
     width: 100%;
     max-width: 420px;
     height: 100%;

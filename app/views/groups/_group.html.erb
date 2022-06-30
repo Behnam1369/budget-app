@@ -6,12 +6,12 @@
   @amount
 %>
 
-<%= link_to "/groups/#{group.id}/expenditures", class:'group progress', style:"background-image: linear-gradient(to right, springgreen #{@amount*100/@sum}%, #fff #{@amount*100/@sum}%)" do %>
+<%= link_to "/groups/#{group.id}/expenditures", class:'group progress', style:"background-image: linear-gradient(to right, springgreen #{@sum == 0 ? 0 : @amount*100/@sum}%, #fff #{@sum== 0 ? 0 : @amount*100/@sum}%)" do %>
   <% if group.icon.attached? %>
     <%= image_tag(group.icon, class: 'icon') %>
   <% else %>
     <div style="background-color:<%= group.default_colors[0] %>; color: <%= group.default_colors[1] %>" class="icon">
-      <%= group.name[0] %>
+      <%= group.name[0].upcase %>
     </div>
   <% end %>
   <p>
