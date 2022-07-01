@@ -21,9 +21,11 @@ class ExpendituresController < ApplicationController
         format.html do
           redirect_to "/groups/#{params['group_id']}/expenditures"
         end
+        flash[:notice] = 'The expenditure was created successfully.'
         # format.json { render :show, status: :created, location: @expenditure }
       else
         format.html { render :new, status: :unprocessable_entity }
+        flash[:alert] = 'The expenditure couldn\'t be created.'
         # format.json { render json: @expenditure.errors, status: :unprocessable_entity }
       end
     end

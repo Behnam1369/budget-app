@@ -1,7 +1,7 @@
 <%= form_with model: expenditure, url: "/groups/#{params['group_id']}/expenditures/create" do |form| %>
   <% if expenditure.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</h2>
+    <div style="color: red; font-family: 'Bold', sans-serif; ">
+      <h3><%= pluralize(expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</h3>
 
       <ul>
         <% expenditure.errors.each do |error| %>
