@@ -16,7 +16,7 @@ Please check out the [live demo deployed on heroku](https://myexpenditures.herok
 
 # Presentational Video 
 
-Will be added
+[![IMAGE THUMBNAIL](./Thumbnail.png)](https://www.youtube.com/watch?v=qV2ISIaZR7Y)
 <!-- [![IMAGE THUMBNAIL](./ThumbnailVideo.png)](https://www.youtube.com/watch?v=omVAGb6t2aY) -->
 
 # Requirements for this project
