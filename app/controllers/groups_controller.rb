@@ -18,9 +18,11 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         format.html { redirect_to "/groups/#{@group.id}/expenditures", notice: 'Group was successfully created.' }
+        flash[:notice] = 'The group was created successfully.'
         # format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new, status: :unprocessable_entity }
+        flash[:alert] = 'The group couldn\'t be created.'
         # format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
