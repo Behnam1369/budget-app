@@ -1,0 +1,11 @@
+<div id="<%= dom_id expenditure %>" class="expenditure progress"
+style="background-image: linear-gradient(to right, springgreen <%= expenditure.amount*100/@sum %>%, #fff <%= expenditure.amount*100/@sum %>%)">
+  <p>
+    <span><%= expenditure.name %></span>
+    <span><%= expenditure.updated_at.strftime('%Y-%m-%d') %></span>
+  </p>
+
+  <p>
+    $<%= expenditure.amount %>
+  </p>
+</div>

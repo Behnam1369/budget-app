@@ -1,0 +1,29 @@
+<div class="app_layout_header">
+  <% if notice.to_s != '' %>
+    <div class="notice" style="text-align:center"><%= notice %></div>
+  <% end %>
+  <% if alert.to_s != '' %>
+    <div class="alert" style="text-align:center; color:yellow"><%= alert %></div>
+  <% end %>
+</div>
+<div class="header">
+  <h1>SIGN IN</h1>
+</div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'users'}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, placeholder:"email" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder:"password" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "SIGN IN" , class:"btn"%>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+

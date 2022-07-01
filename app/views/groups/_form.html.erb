@@ -1,0 +1,30 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Group name" %>
+  </div>
+
+  <div class="field">
+    <input type="button" class="btn_file" value="Click here to choose group icon" />
+    <%= form.file_field :icon, class:"file" %>
+  </div>
+
+  <div class="field">
+    <img id="preview" src="#" alt="your image" />
+  </div>
+  <div>
+    <%= form.submit class:"btn" %>
+  </div>
+  <%= link_to "Back to groups", groups_path %>
+<% end %>

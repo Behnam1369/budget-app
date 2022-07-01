@@ -1,0 +1,15 @@
+<h2>RESEND UNLOCK INSTRUCTIONS</h2>
+
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: {:class => 'users', method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder="email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend unlock instructions", class:"btn" %>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+

@@ -1,0 +1,24 @@
+<%= form_with model: expenditure, url: "/groups/#{params['group_id']}/expenditures/create" do |form| %>
+  <% if expenditure.errors.any? %>
+    <div style="color: red; font-family: 'Bold', sans-serif; ">
+      <h3><%= pluralize(expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</h3>
+
+      <ul>
+        <% expenditure.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.text_field :name, placeholder: "description"  %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :amount, step: 0.5, placeholder: "amount" %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn" %>
+  </div>
+<% end %>
